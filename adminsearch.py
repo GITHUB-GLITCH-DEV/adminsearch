@@ -25,8 +25,8 @@ def print_help():
     """)
 
 def check_for_updates():
-    repo_owner = "YourRepoOwner"
-    repo_name = "YourRepoName"
+    repo_owner = "GITHUB-GLITCH-DEV"
+    repo_name = "adminsearch"
     url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/releases/latest"
     response = requests.get(url)
     if response.status_code == 200:
