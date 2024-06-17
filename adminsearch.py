@@ -90,9 +90,13 @@ else:
         tld = tld_info.suffix
         with open("./subdom_wordlist.txt", "r") as f:
             for line in f:
-                res = requests.get(f"{scheme}://{line.strip()}.{hostname}")
-                if "--display" in options:
-                    print(f"[{res.status_code}] - {scheme}://{line.strip()}.{hostname}")
+                try:
+                    res = requests.get(f"{scheme}://{line.strip()}.{hostname}")
+                    if "--display" in options:
+                        print(f"[OK] - {scheme}://{line.strip()}.{hostname}")
+                except:
+                    if "--display" in options:
+                        print(f"[BAD] - {scheme}://{line.strip()}.{hostname}")
                 
     else:
         found_pages = []
